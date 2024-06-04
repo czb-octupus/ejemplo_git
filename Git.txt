@@ -12,3 +12,63 @@ Que es un software de controlo versiones
 Es un sistema que registra los cambios realizados sobre un archivo o conjutno de archivos a lo largo del tiempo
 
 En pocas palabras es un comparador de texto.
+
+
+USO COMUNES DE LOS TAGS
+
+    LANZAMINETO DE VERSIONES: Podemos marcar versiones especificas del software
+        Por ejemplo v1.0, v2.0-beta, etc
+
+    PUNTOS DE CONTROL IMPORTANTES: Marcar commits importantes, como la finalaizacion de una funcionalidad grande
+    o un hito del proyecto
+
+    TIPOS DE TAGS:
+        1) Tags ligeros (Lightweight Tags):
+            Son referencias simples a commits especificos
+            No contienen informacion adicional como el nombre del etiquetador, fecha o mensaje
+
+            Se crean con el comando:
+
+            git tag nombre_del_tag
+        2) Tags anotados (Annoted Tags):
+            Son objetos completos en la base de datos de git
+            Almacenan metadatos adicionales: nombre del etiquetador, correo electronico, fecha y mensaje
+            Se recomiendan para lanzar versiones de software
+
+            Se crean con el comando:
+
+            git tag -a nombre_del_tag -m "Mensaje del tag"
+
+CREAR Y GESTIONAR TAGS:
+
+    1) Crear un tag ligero
+
+    git tag v1.0
+
+    2) Crear un tag anotado
+
+    git tag -a v1.0 -m "Version 1.0 - Primera version estable"
+
+    3) Listar todos los tags
+
+    git tag
+
+    4) Mostrar informacion de un tag anotado
+
+    git show v1.0
+
+    5) Eliminar un tag (localmente)
+
+    git tag -d nombre_del_tag
+
+    6) Eliminar tag del repositorio remoto
+
+    git push origin --delete nombre_del_tag
+
+    7) Subir o compartir tag especifico en el repositorio remoto
+
+    git push origin nombre_del_tag
+
+    8) Subir o compartir tags en el repositorio remoto
+
+    git push origin --tags
