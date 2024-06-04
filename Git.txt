@@ -1,0 +1,14 @@
+Que es git
+
+Git es un software de control de versiones.
+
+Disenado por Linus Tordvalds
+
+Su proposito es llevar un registro de cambios en los archivos
+
+
+Que es un software de controlo versiones
+
+Es un sistema que registra los cambios realizados sobre un archivo o conjutno de archivos a lo largo del tiempo
+
+En pocas palabras es un comparador de texto.
