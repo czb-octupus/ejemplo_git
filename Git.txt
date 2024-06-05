@@ -72,3 +72,148 @@ CREAR Y GESTIONAR TAGS:
     8) Subir o compartir tags en el repositorio remoto
 
     git push origin --tags
+
+
+PASOS PARA IMPLEMENTAR UN FEATURE:
+
+
+1) CREAR UNA RAMA DE FEATURE
+
+    - Desde la rama develop se crea la rama para funcionalidad
+
+    - Ejemplo:
+        git checkout develop
+        git checkout -b feature/nueva-funcionalidad
+
+    Aqui 'feature/nueva_funcionalidad' es el nombre de la rama de la funcionalidad implementada
+
+2) DESARROLLAR LA FUNCIONALIDAD
+
+    - Se realizan los cambios y commits necesarios en la rama 'feature/nueva_funcionalidad'
+
+    - Ejemplo:
+
+        echo "Codigo de la nueva funcionalidad" > funcionalidad.txt
+        git add funcionalidad.txt
+        git comit -m "Anadir nueva funcionalidad"
+
+3) FUSIONAR LA RAMA DE FEATURE EN DEVELOP
+
+    - Cuando la funcionalidad este completa y probada fusiona la rama de feature en 'develop'
+
+    - Ejmplo:
+
+        git checkout develop
+        git merge feature/nueva_funcionalidad
+        git branch -d feature/nueva_funcionalidad
+
+    Elimina la rama de feature despues de fusionarla para mantener el repositorio limpio
+
+
+CUANDO USAR RAMAS DE FEATURE:
+
+    - Para desarrollar nuevas caracteristicas o funcionalidades sin afectar la rama principal 'master' o 'develop'
+    - Para mantener el historial de campios limpio y organizado
+
+PASOS PARA GENERAR EL REALEASE:
+
+    1) CREAR UNA RAMA DE RELEASE:
+
+        - Desde la rama 'develop' se crea una rama de release:
+
+        - Ejemplo:
+
+            git checkout develop
+            git checkout -b release/v1.0
+
+        - Aqui 'release/v1.0' es el nombre de la rama para la version correspondiente (v1.0)
+
+    2) REALIZAR AJUSTES Y PRUEBAS
+
+        - Realizar los ajuste finales, correccion de errores y pruebas en la rama de release
+
+        - Ejemplo:
+
+            echo "Correccion de errores y ajustes finales" > ajustes.txt
+            git add ajustes.txt
+            git commit -m "Correcciones y ajustes para la version 1.0"
+
+    3) FUSIONAR LA RAMA DE RELEASE EN MASTER Y DEVELOP
+
+        - Una ves que la version este lista, se fusiona en 'master' y 'develop'
+
+        - Ejemplo:
+
+            git checkout master
+            git merge release/v1.0
+            git checkout develop
+            git merge release/v1.0
+            git branch -d release/v1.0
+
+    4) CREAR UN TAG PARA LA NUEVA VERSIONES
+
+        - Crear un tag para la version en la rama 'master'
+
+        - Ejemplo:
+
+            git tag -a v1.0 -m "Version 1.0"
+            git push origin v1.0
+
+CUANDO USAR RAMAS DE RELEASE:
+
+    - Para preparar y estabilizar una nueva version del software
+    - Para realizar pruebas finales y ajustes sin afectar el desarrollo continuo en 'develop'
+
+PASOS PARA GENERAR UN HOTFIX
+
+    1) CREAR UNA RAMA DE HOTFIX
+
+        - Desde la rama 'master' se crea un hotfix
+
+        - Ejemplo:
+
+            git checkout master
+            git checkout -b hotfix/bug-critico
+
+        - Aqui 'hotfix/bug-critico' es el nombre del rama para la correccion urgente
+
+    2) REALIZAR LA CORRECCION
+
+        - Realizar los cambios necesarios para corregir el problema critico.
+
+        - Ejemplo:
+
+            echo "Correccion del bug critico" > correccion.txt
+            git add correccion.txt
+            git commit -m "Correccion del bug critico"
+
+    3) FUSIONAR LA RAMA DE HOTFIX EN MASTER Y DEVELOP
+
+        - Fusionar en 'master' y 'develop' para asegurar de que la correccion este presente en ambas ramas
+
+        - Ejemplo:
+
+            git checkout master
+            git merge hotfix/bug-critico
+            git checkout develop
+            git merge hotfix/bug-critico
+            git branch -d hotfix/bug-critico
+
+    4) CREAR UN TAG PARA LA NUEVA VERSION 
+
+        - Crear un tag para la nueva version corregida en la rama 'master'
+
+        - Ejemplo:
+
+            git tag -a v1.0.1 -m "Version 1.0.1.- Correccion Critica"
+            git push origin v1.0.1
+
+CUANDO USAR RAMAS DE HOT FIX
+
+    - Para aplicar correcciones criticas y urgentes sin interrumpir el desarrllo en curso.
+    - Para asegurar que las correcciones se apliquen tanto en 'master' como en 'develop'
+
+MARKDOWN
+
+    Markdown es un lenguaje de marcado ligero utilizado para formatear texto en archivos
+    README, documentacion y publicaciones web. Es facil de leer y escribir, y se convierte automaticamente en HTML
